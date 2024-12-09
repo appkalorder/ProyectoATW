@@ -19,7 +19,7 @@
 <!-- Recurso 1 -->
 
 <body class="vh-100 d-flex flex-column bg-light">
-    <nav class="navbar navbar-expand-md bg-info sticky-top">
+    <nav class="navbar navbar-expand-md bg-info fixed-top">
         <div class="container d-flex align-items-center">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -40,17 +40,32 @@
                             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
                     </ul>
+                    <div class="col-md-3 d-md-none d-block ">
+                        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#Hardware">Hardware</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ms-3 my-1" href="/resourse1.html#wiHardware">Concepto</a>
+                                    <a class="nav-link ms-3 my-1" href="#History">Historia</a>
+                                    <a class="nav-link ms-3 my-1" href="#Types">Tipos</a>
+                                    <a class="nav-link ms-3 my-1" href="#Examples">Ejemplos</a>
+                                    <a class="nav-link ms-3 my-1" href="#HyS">Hardware y Software</a>
+                                    <a class="nav-link ms-3 my-1" href="#freeHardware">Hardware libre</a>
+                                </nav>
+                            </nav>
+                        </nav>
+                    </div>
                 </div>
             </div>
             <!-- botones de logeo idea -->
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reg-offcanvas"
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reg-offcanvas"
                 aria-controls="reg-offcanvas" aria-label="Toggle navigation">
                 <i class="fa-solid fa-address-card"></i>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="reg-offcanvas"
                 aria-labelledby="reg-offcanvasLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="reg-offcanvasLabel">Menú</h5>
+                    <h5 class="offcanvas-title" id="reg-offcanvasLabel">Autenticación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body d-md-flex d-none justify-content-end">
@@ -65,27 +80,24 @@
                         <button class="btn btn-outline-primary mb-2" type="button">Registrar</button>
                     </form>
                 </div>
-            </div> -->
-            <div>
-                <!-- Facebook -->
+            </div>
+            <!-- <div>
                 <a style="color: #3b5998;" href="#!" role="button">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
 
-                <!-- Twitter -->
                 <a style="color: black;" href="#!" role="button">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
 
-                <!-- Instagram -->
                 <a style="color: #ac2bac;" href="#!" role="button">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-            </div>
+            </div> -->
         </div>
     </nav>
 
-    <div class="container mt-4 mb-4 flex-grow-1">
+    <div class="container mb-4 flex-grow-1" style="margin-top: 80px;">
         <div class="row">
             <div class="col-md-3 d-none d-md-block">
                 <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
@@ -105,7 +117,7 @@
 
             <div class="col-md-9 col-12">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
-                    class="scrollspy-example-2" tabindex="0">
+                    class="scrollspy-example-2" >
                     <div id="Hardware">
                         <h4>Hardware</h4>
                         <p>Te explicamos qué es hardware y las generaciones de hardware que existen. Además tipos de
