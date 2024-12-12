@@ -1,0 +1,44 @@
+:root {
+    --dark: #161c1c;
+    --dark-x: #1e2116;
+    --light: #ffffff;
+
+}
+
+body {
+
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+    font-weight: 300px;
+    color: var(--light);
+}
+
+.bg-dark-x {
+    background-color: var(--dark-x);
+}
+
+.form-control, .btn {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+.img-1 {
+    background-image: url('img/alogin.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-2 {
+    background-image: url('img/blogin.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+  }
