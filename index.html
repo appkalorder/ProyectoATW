@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +11,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <style>
-    a{
+    a {
         text-decoration: none;
     }
 
@@ -41,8 +44,38 @@
     }
 </style>
 
+<script>
+    $(document).ready(function () {
+        function isInViewport(element) {
+            const elementTop = $(element).offset().top;
+            const elementBottom = elementTop + $(element).outerHeight();
+            const viewportTop = $(window).scrollTop();
+            const viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        }
+
+        function checkVisibility() {
+            $(".card").each(function () {
+                if (isInViewport(this)) {
+                    $(this).stop().fadeIn(500); // Cambia esto por animate si quieres algo más específico
+                } else {
+                    $(this).stop().fadeOut(500);
+                }
+            });
+        }
+
+        // Revisa la visibilidad al hacer scroll o redimensionar
+        $(window).on("scroll resize", checkVisibility);
+
+        // Llama inicialmente para detectar al cargar la página
+        checkVisibility();
+    });
+</script>
+
 <body>
     <header>
+        
+
         <!-- nav en bootstrap -->
         <div class="container">
             <nav class="navbar navbar-expand-md bg-info fixed-top">
@@ -97,12 +130,12 @@
                         </div>
                         <div class="offcanvas-body row d-flex d-md-none">
                             <form action="" class="d-flex flex-column">
-                            <a href="login.html" class="col-auto btn btn-outline-primary">
-                                <i class="fa-solid fa-right-to-bracket"></i>Iniciar Sesión
-                            </a>
-                            <a href="register.html" class="btn btn-outline-primary mb-2">
-                                Registrar
-                              </a>
+                                <a href="login.html" class="col-auto btn btn-outline-primary">
+                                    <i class="fa-solid fa-right-to-bracket"></i>Iniciar Sesión
+                                </a>
+                                <a href="register.html" class="btn btn-outline-primary mb-2">
+                                    Registrar
+                                </a>
 
                             </form>
                         </div>
@@ -138,7 +171,9 @@
                 </div>
                 <div class="carousel-item" style="max-height: 300px;">
                     <a href="resourse1.html">
-                        <img style="opacity: 0.8;" src="https://humanidades.com/wp-content/uploads/2017/04/hardware-4-e1566849269137.jpg" class="d-block w-100" alt="...">
+                        <img style="opacity: 0.8;"
+                            src="https://humanidades.com/wp-content/uploads/2017/04/hardware-4-e1566849269137.jpg"
+                            class="d-block w-100" alt="...">
                     </a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>PROGRAMACIÓN</h5>
@@ -147,7 +182,9 @@
                 </div>
                 <div class="carousel-item" style="max-height: 300px;">
                     <a href="resourse1.html">
-                        <img style="opacity: 0.8;" src="https://cdn.diferenciador.com/imagenes/hardware-y-software-og.jpg" class="d-block w-100" alt="...">
+                        <img style="opacity: 0.8;"
+                            src="https://cdn.diferenciador.com/imagenes/hardware-y-software-og.jpg"
+                            class="d-block w-100" alt="...">
                     </a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>CHATGPT</h5>
@@ -278,18 +315,6 @@
         </div>
         <!-- Grid container -->
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('server_info.php')
-                .then(response => response.json())
-                .then(data => {
-                    alert('Servidor: ' + data.hostname + '\nIP: ' + data.ip);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-        </script>
 </body>
 
 </html>
