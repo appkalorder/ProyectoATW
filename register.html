@@ -1,193 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Registro</title>
-  <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/stylereg.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Easy -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-easy@1.0.0/jquery.easy.min.js"></script>
+    <style>
+        body {
+            background-color: #22263b; /* Color oscuro que contrasta con el celeste */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 1000px; /* Hacerlo más amplio */
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            height: 600px; /* Ajustar la altura del formulario */
+        }
+        .card-img-left {
+            width: 50%;
+            height: 100%;
+        }
+        .card-img-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body {
+            width: 50%;
+            background-color: #00bfff;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            color: rgb(0, 0, 0) !important; 
+            text-align: center;
+            font-weight: bold;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: #28a745 !important; /* Verde */
+            border: none !important;
+            transition: 0.3s;
+            font-size: 18px;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #186328 !important;
+            transform: scale(1.05);
+        }
+
+        .text-center a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-          <div class="card-img-left d-none d-md-flex">
-            <img class="img-fluid" src="img/alogin.jpg" alt="">
-          </div>
-          <div class="card-body p-4 p-sm-5 bg-info">
-            <h1 class="card-title text-center mb-5 fw-light">Registro</h1>
-            <form id="registerForm" novalidate>
-              <!-- Nombre -->
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingFirstName" placeholder="Nombre" required>
-                <label for="floatingFirstName">Nombre</label>
-                <div class="invalid-feedback">El nombre es obligatorio.</div>
-              </div>
+<body>
 
-              <!-- Apellido -->
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingLastName" placeholder="Apellido" required>
-                <label for="floatingLastName">Apellido</label>
-                <div class="invalid-feedback">El apellido es obligatorio.</div>
-              </div>
-
-              <!-- Nombre de usuario -->
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="usuario" required autofocus>
-                <label for="floatingInputUsername">Nombre de usuario</label>
-                <div class="invalid-feedback">El nombre de usuario es obligatorio.</div>
-              </div>
-
-              <!-- Correo electrónico -->
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@gmail.com">
-                <label for="floatingInputEmail">Correo electrónico</label>
-                <div class="invalid-feedback">Introduce un correo válido (gmail.com, hotmail.com, espe.edu.ec).</div>
-              </div>
-
-              <hr>
-
-              <!-- Contraseña -->
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                <label for="floatingPassword">Contraseña</label>
-                <div class="invalid-feedback">La contraseña debe tener 8 caracteres, una mayúscula, un número y un signo especial.</div>
-              </div>
-
-              <!-- Confirmar contraseña -->
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirmar Contraseña">
-                <label for="floatingPasswordConfirm">Confirmar Contraseña</label>
-                <div class="invalid-feedback">Las contraseñas no coinciden.</div>
-              </div>
-
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Registrar</button>
-              </div>
-
-              <a class="d-block text-center mt-2 small" href="login.html">¿Tienes una cuenta? Iniciar sesión</a>
-              <hr class="my-4">
-    
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-google me-2"></i>  Google
-                </button>
-              </div>
-
-              <div class="d-grid">
-                <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-facebook-f me-2"></i> Facebook
-                </button>
-              </div>
-
-            </form>
-          </div>
+<div class="container">
+    <div class="card">
+        <div class="card-img-left">
+            <img src="img/elogin.jpg" alt="Imagen Registro">
         </div>
-      </div>
+        <div class="card-body">
+            <h1>Registro</h1>
+            <form id="registerForm" novalidate>
+                
+                <!-- Nombre -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="firstName" placeholder="Nombre" required>
+                    <label for="firstName">Nombre</label>
+                    <div class="invalid-feedback">Solo se permiten letras.</div>
+                </div>
+
+                <!-- Apellido -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="lastName" placeholder="Apellido" required>
+                    <label for="lastName">Apellido</label>
+                    <div class="invalid-feedback">Solo se permiten letras.</div>
+                </div>
+
+                <!-- Correo -->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Correo">
+                    <label for="email">Correo electrónico</label>
+                    <div class="invalid-feedback">Debe contener "@", ".", y terminar en "com".</div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    <label for="password">Contraseña</label>
+                    <div class="invalid-feedback">Debe tener 8 caracteres, 1 mayúscula, 1 número y 1 símbolo.</div>
+                </div>
+
+                <!-- Confirmar contraseña -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar contraseña">
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button class="btn btn-lg btn-primary" type="submit">Registrar</button>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a href="login.html">¿Ya tienes una cuenta? Iniciar sesión</a>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Validación en tiempo real con JavaScript -->
-  <script>
- document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("registerForm");
+<!-- JavaScript para validaciones y efectos -->
+<script>
+$(document).ready(function () {
+    $("#registerForm").on("submit", function (event) {
+        event.preventDefault();
+        let isValid = true;
 
-  // Validaciones dinámicas
-  form.addEventListener("input", function (event) {
-    const target = event.target;
+        // Validar nombre (solo letras)
+        let nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+        let firstName = $("#firstName");
+        if (!nameRegex.test(firstName.val())) {
+            firstName.addClass("is-invalid");
+            isValid = false;
+        } else {
+            firstName.removeClass("is-invalid").addClass("is-valid");
+        }
 
-    // Validar nombre
-    if (target.id === "floatingFirstName") {
-      const isNotEmpty = validateNotEmpty(target);
-      toggleValidation(target, isNotEmpty);
-      showError(target, isNotEmpty, "El nombre es obligatorio.");
-    }
+        // Validar apellido (solo letras)
+        let lastName = $("#lastName");
+        if (!nameRegex.test(lastName.val())) {
+            lastName.addClass("is-invalid");
+            isValid = false;
+        } else {
+            lastName.removeClass("is-invalid").addClass("is-valid");
+        }
 
-    // Validar apellido
-    if (target.id === "floatingLastName") {
-      const isNotEmpty = validateNotEmpty(target);
-      toggleValidation(target, isNotEmpty);
-      showError(target, isNotEmpty, "El apellido es obligatorio.");
-    }
+        // Validar correo
+        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/;
+        let email = $("#email");
+        if (!emailRegex.test(email.val())) {
+            email.addClass("is-invalid");
+            isValid = false;
+        } else {
+            email.removeClass("is-invalid").addClass("is-valid");
+        }
 
-    // Validar nombre de usuario
-    if (target.id === "floatingInputUsername") {
-      const isNotEmpty = validateNotEmpty(target);
-      toggleValidation(target, isNotEmpty);
-      showError(target, isNotEmpty, "El nombre de usuario es obligatorio.");
-    }
+        // Validar contraseña
+        let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+        let password = $("#password");
+        if (!passwordRegex.test(password.val())) {
+            password.addClass("is-invalid");
+            isValid = false;
+        } else {
+            password.removeClass("is-invalid").addClass("is-valid");
+        }
 
-    // Validar correo
-    if (target.id === "floatingInputEmail") {
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|espe\.edu\.ec)$/;
-      const isNotEmpty = validateNotEmpty(target);
-      const isValid = isNotEmpty && emailRegex.test(target.value);
-      toggleValidation(target, isValid);
-      showError(target, isValid, "Introduce un correo válido (gmail.com, hotmail.com, espe.edu.ec).");
-    }
+        // Confirmar contraseña
+        let confirmPassword = $("#confirmPassword");
+        if (password.val() !== confirmPassword.val() || confirmPassword.val() === "") {
+            confirmPassword.addClass("is-invalid");
+            isValid = false;
+        } else {
+            confirmPassword.removeClass("is-invalid").addClass("is-valid");
+        }
 
-    // Validar contraseña
-    if (target.id === "floatingPassword") {
-      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-      const isNotEmpty = validateNotEmpty(target);
-      const isValid = isNotEmpty && passwordRegex.test(target.value);
-      toggleValidation(target, isValid);
-      showError(target, isValid, "La contraseña debe tener 8 caracteres, una mayúscula, un número y un signo especial.");
-    }
+        // Si es válido, mostrar animación de éxito
+        if (isValid) {
+            $("form").easy("bounce", { times: 3, distance: 30 }, 600);
+            alert("Registro exitoso");
+        }
+    });
 
-    // Validar confirmación de contraseña
-    if (target.id === "floatingPasswordConfirm") {
-      const password = document.getElementById("floatingPassword").value;
-      const isNotEmpty = validateNotEmpty(target);
-      const isValid = isNotEmpty && target.value === password;
-      toggleValidation(target, isValid);
-      showError(target, isValid, "Las contraseñas no coinciden.");
-    }
-  });
-
-  // Validar al enviar el formulario
-  form.addEventListener("submit", function (event) {
-    if (!form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    form.classList.add("was-validated");
-  });
-
-  // Función para alternar clases de validación
-  function toggleValidation(input, isValid) {
-    if (isValid) {
-      input.classList.remove("is-invalid");
-      input.classList.add("is-valid");
-    } else {
-      input.classList.remove("is-valid");
-      input.classList.add("is-invalid");
-    }
-  }
-
-  // Función para validar si el campo no está vacío
-  function validateNotEmpty(input) {
-    return input.value.trim() !== "";
-  }
-
-  // Función para mostrar mensajes de error dinámicamente
-  function showError(input, isValid, message) {
-    const errorDiv = input.nextElementSibling;
-    if (!isValid) {
-      if (errorDiv && errorDiv.classList.contains("invalid-feedback")) {
-        errorDiv.textContent = message;
-      }
-    } else if (errorDiv && errorDiv.classList.contains("invalid-feedback")) {
-      errorDiv.textContent = ""; // Limpiar el mensaje de error si es válido
-    }
-  }
+    // Agregar efecto de entrada al formulario
+    $(".card").easy("fadeIn", 800);
 });
-
-  </script>
+</script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
