@@ -158,24 +158,19 @@
     $(document).ready(function () {
         // Configurar el intervalo de cambio de imágenes a 2 segundos
         let interval = 5000;
-
         // Inicializar carrusel de Bootstrap sin la transición automática para controlarlo con jQuery
         let $carousel = $("#carouselExampleCaptions");
         $carousel.carousel({ interval: false });
-
         function nextSlide() {
             let $active = $(".carousel .carousel-item.active");
             let $next = $active.next(".carousel-item");
-
             if ($next.length === 0) {
                 $next = $(".carousel .carousel-item").first(); // Vuelve al primer slide si está en el último
             }
-
-            $active.fadeOut(800, function () {
+            $active.fadeOut(900, function () {
                 $(this).removeClass("active");
-                $next.fadeIn(800).addClass("active");
+                $next.fadeIn(900).addClass("active");
             });
-
             $carousel.carousel("next"); // Mueve el indicador de Bootstrap
         }
 
