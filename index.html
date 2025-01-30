@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>DocuLab</title>
     <link rel="shortcut icon" href="svg/Dsvg.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
@@ -42,6 +42,18 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    .nav-link{
+        color: black;
+    }
+
+    .fondo{
+        background-color: #f0f0f0;
+    }
+
+    .color-btn:hover{
+        background-color: #d1d1d1;
+        color: black;
+    }
 </style>
 
 <script>
@@ -72,13 +84,13 @@
     });
 </script>
 
-<body>
+<body class="vh-100 d-flex flex-column bg-light">
     <header>
         
 
         <!-- nav en bootstrap -->
         <div class="container">
-            <nav class="navbar navbar-expand-md bg-info fixed-top">
+            <nav class="navbar navbar-expand-md fondo fixed-top">
                 <div class="container d-flex align-items-center">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -123,20 +135,18 @@
                         </div>
                         <div class="offcanvas-body d-md-flex d-none justify-content-end">
                             <form class="row gap-3 d-md-block d-none" role="register">
-                                <button class="col-auto btn btn-outline-primary" type="button"><i
-                                        class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</button>
-                                <button class="col-auto btn btn-outline-primary" type="button">Registrar</button>
+                                <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión</a>
+                                <a href="register.html" class="col-auto btn color-btn">Registrarse
+                                </a>
                             </form>
                         </div>
                         <div class="offcanvas-body row d-flex d-md-none">
                             <form action="" class="d-flex flex-column">
-                                <a href="login.html" class="col-auto btn btn-outline-primary">
-                                    <i class="fa-solid fa-right-to-bracket"></i>Iniciar Sesión
+                                <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión
                                 </a>
-                                <a href="register.html" class="btn btn-outline-primary mb-2">
-                                    Registrar
+                                <a href="register.html" class="col-auto btn color-btn">Registrarse
                                 </a>
-
+                                  
                             </form>
                         </div>
                     </div>
@@ -278,7 +288,7 @@
         </section>
     </div>
 
-    <footer class="text-center" style="background-color: rgba(0, 0, 0, 0.05);">
+    <footer class="text-center " style="background-color: rgb(30, 29, 29); color:white">
         <!-- Grid container -->
         <div class="container pt-4">
             <!-- Section: Social media -->
@@ -286,35 +296,31 @@
                 <!-- Facebook -->
                 <div>
                     <a style="color: #3b5998;" href="#!" role="button">
-                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-facebook fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
                 <!-- Twitter -->
                 <div>
                     <a style="color: black;" href="#!" role="button">
-                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-github fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
                 <!-- Instagram -->
                 <div>
                     <a style="color: #ac2bac;" href="#!" role="button">
-                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-instagram fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
             </section>
             <!-- Section: Social media -->
-            <hr>
+            <hr style="color: gray;">
             <!-- Copyright -->
             <div class="text-center px-3">
-                <p>&copy; 2024 DocuLab. Este sitio y su contenido están protegidos por derechos de autor. Queda
-                    prohibida su reproducción total o parcial sin autorización previa. Consulte nuestros <a
-                        href="/terminos-y-condiciones">Términos y Condiciones</a> y <a
-                        href="/politica-de-privacidad">Política de Privacidad</a>.</p>
+                <p>&copy; 2024 DocuLab. Este sitio y su contenido están protegidos por derechos de autor. Queda prohibida su reproducción total o parcial sin autorización previa. Consulte nuestros <a href="/terminos-y-condiciones">Términos y Condiciones</a> y <a href="/politica-de-privacidad">Política de Privacidad</a>.</p>
             </div>
             <!-- Copyright -->
         </div>
         <!-- Grid container -->
     </footer>
 </body>
-
 </html>
