@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doculab</title>
+    <title>Hardware</title>
     <link rel="shortcut icon" href="svg/Dsvg.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
@@ -30,7 +30,16 @@
             color: black;
         }
         .nav-link:hover{
-            color: #0d6efd;
+            color: #4d4d4d;
+        }
+
+        .fondo{
+            background-color: #f0f0f0;
+        }
+
+        .color-btn:hover, .subtema > h5:hover, .tema > h4:hover{
+            background-color: #d1d1d1;
+            color: black;
         }
 
     </style>
@@ -61,10 +70,9 @@
         
     </script>
 </head>
-<!-- Recurso 1 -->
 
 <body class="vh-100 d-flex flex-column bg-light">
-    <nav class="navbar navbar-expand-md bg-info fixed-top">
+    <nav class="navbar navbar-expand-md fondo fixed-top">
         <div class="container d-flex align-items-center">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -84,14 +92,14 @@
 
                     <ul class="navbar-nav justify-content-start flex-grow-1 ms-3 pe-3">
                         <li class="nav-item align-items-center">
-                            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="/">Inicio</a>
                         </li>
                     </ul>
                     <div class="col-md-3 d-md-none d-block ">
-                        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                            <nav class="nav nav-pills flex-column">
+                        <nav id="navbar-example3" class="flex-column align-items-stretch pe-4 border-end">
+                            <nav class="nav flex-column">
                                 <a class="nav-link" href="#Hardware">Hardware</a>
-                                <nav class="nav nav-pills flex-column">
+                                <nav class="nav flex-column">
                                     <a class="nav-link ms-3 my-1" href="/resourse1.html#wiHardware">Concepto</a>
                                     <a class="nav-link ms-3 my-1" href="#History">Historia</a>
                                     <a class="nav-link ms-3 my-1" href="#Types">Tipos</a>
@@ -117,19 +125,16 @@
                 </div>
                 <div class="offcanvas-body d-md-flex d-none justify-content-end">
                     <form class="row gap-3 d-md-block d-none" role="register">
-                        <a href="login.html" class="col-auto btn btn-outline-primary"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
-                        <a href="register.html" class="col-auto btn btn-outline-primary">
-                            <i class="fa-solid fa-right-to-bracket"></i> Registrarse
+                        <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión</a>
+                        <a href="register.html" class="col-auto btn color-btn">Registrarse
                         </a>
                     </form>
                 </div>
                 <div class="offcanvas-body row d-flex d-md-none">
                     <form action="" class="d-flex flex-column">
-                        <a href="login.html" class="col-auto btn btn-outline-primary">
-                            <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                        <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión
                         </a>
-                        <a href="register.html" class="col-auto btn btn-outline-primary">
-                            <i class="fa-solid fa-right-to-bracket"></i> Registrarse
+                        <a href="register.html" class="col-auto btn color-btn">Registrarse
                         </a>
                           
                     </form>
@@ -139,13 +144,13 @@
     </nav>
 
     <div class="container mb-4 flex-grow-1" style="margin-top: 56px;">
-        <div class="row ">
+        <div class="row">
             <div class="col-md-2 d-none d-md-flex flex-column position-fixed">
                 <div class="col-12 position-static">
-                    <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                        <nav class="nav nav-pills flex-column">
+                    <nav id="navbar-example3" class="flex-column align-items-stretch pe-4 border-end">
+                        <nav class="nav flex-column">
                             <a class="nav-link" href="#Hardware">Hardware</a>
-                            <nav class="nav nav-pills flex-column">
+                            <nav class="nav flex-column">
                                 <a class="nav-link ms-3 my-1" href="#wiHardware">Concepto</a>
                                 <a class="nav-link ms-3 my-1" href="#History">Historia</a>
                                 <a class="nav-link ms-3 my-1" href="#Types">Tipos</a>
@@ -347,7 +352,7 @@
         </div>
     </div>
 
-    <footer class="text-center " style="background-color: rgba(0, 0, 0, 0.05);">
+    <footer class="text-center " style="background-color: rgb(30, 29, 29); color:white">
         <!-- Grid container -->
         <div class="container pt-4">
             <!-- Section: Social media -->
@@ -355,24 +360,24 @@
                 <!-- Facebook -->
                 <div>
                     <a style="color: #3b5998;" href="#!" role="button">
-                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-facebook fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
                 <!-- Twitter -->
                 <div>
                     <a style="color: black;" href="#!" role="button">
-                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-github fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
                 <!-- Instagram -->
                 <div>
                     <a style="color: #ac2bac;" href="#!" role="button">
-                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-instagram fa-xl" style="color: #ffffff;"></i>
                     </a>
                 </div>
             </section>
             <!-- Section: Social media -->
-            <hr>
+            <hr style="color: gray;">
             <!-- Copyright -->
             <div class="text-center px-3">
                 <p>&copy; 2024 DocuLab. Este sitio y su contenido están protegidos por derechos de autor. Queda prohibida su reproducción total o parcial sin autorización previa. Consulte nuestros <a href="/terminos-y-condiciones">Términos y Condiciones</a> y <a href="/politica-de-privacidad">Política de Privacidad</a>.</p>
