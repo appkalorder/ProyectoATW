@@ -163,33 +163,65 @@ if (isset($_SESSION['firstName'])) {
                 </div>
             </div>
             <!-- botones de logeo idea -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reg-offcanvas"
-                aria-controls="reg-offcanvas" aria-label="Toggle navigation">
-                <i class="fa-solid fa-address-card"></i>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="reg-offcanvas"
-                aria-labelledby="reg-offcanvasLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="reg-offcanvasLabel">Autenticación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <?php if (isset($_SESSION['firstName'])): ?>
+                <!-- Dropdown visible en pantallas medianas y grandes -->
+                <div class="collapse navbar-collapse justify-content-end d-md-flex d-none" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo htmlspecialchars($_SESSION['firstName']); ?>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu" style="left: -77px;">
+                                <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="offcanvas-body d-md-flex d-none justify-content-end">
-                    <form class="row gap-3 d-md-block d-none" role="register">
-                        <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión</a>
-                        <a href="register.html" class="col-auto btn color-btn">Registrarse
-                        </a>
-                    </form>
+                <!-- Toggler visible en pantallas pequeñas -->
+                <button class="navbar-toggler d-flex d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDropdown" aria-controls="offcanvasDropdown" aria-label="Toggle navigation">
+                    <span class="fa-solid fa-address-card"></span>
+                </button>
+                <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasDropdown" aria-labelledby="offcanvasDropdownLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDropdownLabel">Menú</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-dark dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php echo htmlspecialchars($_SESSION['firstName']); ?>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu w-100">
+                                    <li><a class="dropdown-item" style="text-align: center;" href="logout.php">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="offcanvas-body row d-flex d-md-none">
-                    <form action="" class="d-flex flex-column">
-                        <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión
-                        </a>
-                        <a href="register.html" class="col-auto btn color-btn">Registrarse
-                        </a>
-
-                    </form>
+            <?php else: ?>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reg-offcanvas" aria-controls="reg-offcanvas" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-address-card"></i>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="reg-offcanvas" aria-labelledby="reg-offcanvasLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="reg-offcanvasLabel">Autenticación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex d-none justify-content-end">
+                        <form class="row gap-3 d-md-block d-none" role="register">
+                            <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión</a>
+                            <a href="register.html" class="col-auto btn color-btn">Registrarse</a>
+                        </form>
+                    </div>
+                    <div class="offcanvas-body row d-flex d-md-none">
+                        <form action="" class="d-flex flex-column">
+                            <a href="login.html" class="col-auto btn color-btn">Iniciar Sesión</a>
+                            <a href="register.html" class="col-auto btn color-btn">Registrarse</a>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </nav>
 
@@ -402,7 +434,7 @@ if (isset($_SESSION['firstName'])) {
     </div>
 
     <div class="container mt-5" id="comentarios">
-        <h3>Comentarios</h3>
+        <h2>Sección de Comentarios</h2>
         <form action="comments.php" method="POST">
             <div class="mb-3">
                 <label for="comment" class="form-label">Escribe tu comentario:</label>

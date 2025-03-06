@@ -46,22 +46,23 @@ session_start();
         flex-direction: column;
         justify-content: space-between;
     }
-    .nav-link{
+
+    .nav-link {
         color: black;
     }
 
-    .fondo{
+    .fondo {
         background-color: #f0f0f0;
     }
 
-    .color-btn:hover{
+    .color-btn:hover {
         background-color: #d1d1d1;
         color: black;
     }
 </style>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         function isInViewport(element) {
             const elementTop = $(element).offset().top;
             const elementBottom = elementTop + $(element).outerHeight();
@@ -71,7 +72,7 @@ session_start();
         }
 
         function checkVisibility() {
-            $(".card").each(function () {
+            $(".card").each(function() {
                 if (isInViewport(this)) {
                     $(this).stop().fadeIn(500); // Cambia esto por animate si quieres algo más específico
                 } else {
@@ -123,32 +124,49 @@ session_start();
                     </div>
                     <!-- botones de logeo idea -->
                     <?php if (isset($_SESSION['firstName'])): ?>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <!-- Dropdown visible en pantallas medianas y grandes -->
+                        <div class="collapse navbar-collapse justify-content-end d-md-flex d-none" id="navbarNavDarkDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo htmlspecialchars($_SESSION['firstName']); ?>
                                     </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                    <ul class="dropdown-menu dropdown-menu" style="left: -77px;">
                                         <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
+                        <!-- Toggler visible en pantallas pequeñas -->
+                        <button class="navbar-toggler d-flex d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDropdown" aria-controls="offcanvasDropdown" aria-label="Toggle navigation">
+                            <span class="fa-solid fa-address-card"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasDropdown" aria-labelledby="offcanvasDropdownLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasDropdownLabel">Menú</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <button class="btn btn-dark dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <?php echo htmlspecialchars($_SESSION['firstName']); ?>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu w-100">
+                                            <li><a class="dropdown-item" style="text-align: center;" href="logout.php">Cerrar Sesión</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     <?php else: ?>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#reg-offcanvas" aria-controls="reg-offcanvas" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reg-offcanvas" aria-controls="reg-offcanvas" aria-label="Toggle navigation">
                             <i class="fa-solid fa-address-card"></i>
                         </button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="reg-offcanvas"
-                            aria-labelledby="reg-offcanvasLabel">
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="reg-offcanvas" aria-labelledby="reg-offcanvasLabel">
                             <div class="offcanvas-header">
                                 <h5 class="offcanvas-title" id="reg-offcanvasLabel">Autenticación</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body d-md-flex d-none justify-content-end">
                                 <form class="row gap-3 d-md-block d-none" role="register">
@@ -182,7 +200,7 @@ session_start();
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" style="max-height: 300px;">
-                    <a href="resourse1.html">
+                    <a href="resourse1.php">
                         <img style="opacity: 0.8;"
                             src="https://phoenixnap.com/glossary/wp-content/uploads/2022/09/what-is-hardware.jpg"
                             class="d-block w-100" alt="...">
@@ -193,7 +211,7 @@ session_start();
                     </div>
                 </div>
                 <div class="carousel-item" style="max-height: 300px;">
-                    <a href="resourse1.html">
+                    <a href="resourse1.php">
                         <img style="opacity: 0.8;"
                             src="https://humanidades.com/wp-content/uploads/2017/04/hardware-4-e1566849269137.jpg"
                             class="d-block w-100" alt="...">
@@ -204,7 +222,7 @@ session_start();
                     </div>
                 </div>
                 <div class="carousel-item" style="max-height: 300px;">
-                    <a href="resourse1.html">
+                    <a href="resourse1.php">
                         <img style="opacity: 0.8;"
                             src="https://cdn.diferenciador.com/imagenes/hardware-y-software-og.jpg"
                             class="d-block w-100" alt="...">
@@ -336,4 +354,5 @@ session_start();
         <!-- Grid container -->
     </footer>
 </body>
+
 </html>
