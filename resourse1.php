@@ -171,7 +171,7 @@ if (isset($_SESSION['firstName'])) {
                             <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo htmlspecialchars($_SESSION['firstName']); ?>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu" style="left: -77px;">
+                            <ul class="dropdown-menu dropdown-menu" style="right: 0; left: auto;">
                                 <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>
                             </ul>
                         </li>

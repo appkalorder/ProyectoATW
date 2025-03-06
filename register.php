@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
@@ -21,6 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Save the new user
     file_put_contents($usersFile, "$email|$password|$firstName|$lastName\n", FILE_APPEND);
+
+    // Log in the user automatically
+    $_SESSION['email'] = $email;
+    $_SESSION['firstName'] = $firstName;
+
     header('Location: index.html');
     exit();
 }

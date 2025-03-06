@@ -1,3 +1,5 @@
 appkalorder@gmail.com|$2y$12$tml35t9E6bD5sheUkV4bXuec4s9yJDg4MfNBDnPTAiu6Ivu7MNVW6|Jordy|Mejia
 juan@gmail.com|$2y$12$6.jQ8ciJtDm/QaxbDK.2a.R8L8IVlbsGzbHAXK2bpa9Ntr6OPUFGy|Juan|Caballo
 pablin@gmail.com|$2y$12$zQGTxpXYuLnuz/jP5O.Mv.eliT.d03tgXllff2JoqzCYO1e8x5QuW|Pablo|Puente
+spark@gmail.com|$2y$12$V.UyOUaMDxdAOSFiU23/e.LHhvJdVBgg/RLv14ekEobvMoRtjQh2O|Connie|Spark
+maria@gmail.com|$2y$12$QgtoliT1mwqO3.V2iLZcpOPmbLWnQFL1tPdHfFSaeSf6frsElr4Rm|Maria|Macias
