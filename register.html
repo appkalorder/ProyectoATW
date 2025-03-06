@@ -105,40 +105,39 @@
             </div>
             <div class="card-body">
                 <h1>Registro</h1>
-                <form id="registerForm" novalidate>
+                <form id="registerForm" action="register.php" method="POST" novalidate>
 
                     <!-- Nombre -->
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="firstName" placeholder="Nombre" required>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" required>
                         <label for="firstName">Nombre</label>
                         <div class="invalid-feedback">Solo se permiten letras.</div>
                     </div>
 
                     <!-- Apellido -->
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="lastName" placeholder="Apellido" required>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" required>
                         <label for="lastName">Apellido</label>
                         <div class="invalid-feedback">Solo se permiten letras.</div>
                     </div>
 
                     <!-- Correo -->
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Correo">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Correo">
                         <label for="email">Correo electrónico</label>
                         <div class="invalid-feedback">Debe contener "@", ".", y terminar en "com".</div>
                     </div>
 
                     <!-- Contraseña -->
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                         <label for="password">Contraseña</label>
                         <div class="invalid-feedback">Debe tener 8 caracteres, 1 mayúscula, 1 número y 1 símbolo.</div>
                     </div>
 
                     <!-- Confirmar contraseña -->
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="confirmPassword"
-                            placeholder="Confirmar contraseña">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña">
                         <label for="confirmPassword">Confirmar contraseña</label>
                         <div class="invalid-feedback">Las contraseñas no coinciden.</div>
                     </div>
@@ -159,6 +158,11 @@
     <!-- JavaScript para validaciones y efectos -->
     <script>
         $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error') && urlParams.get('error') === 'email_taken') {
+                alert('El correo electrónico ya está registrado. Por favor, elige otro.');
+            }
+
             $("#registerForm").on("submit", function (event) {
                 event.preventDefault();
                 let isValid = true;
@@ -211,10 +215,9 @@
                     confirmPassword.removeClass("is-invalid").addClass("is-valid");
                 }
 
-                // Si es válido, mostrar animación de éxito
+                // Si es válido, enviar el formulario
                 if (isValid) {
-                    $("form").easy("bounce", { times: 3, distance: 30 }, 600);
-                    alert("Registro exitoso");
+                    this.submit();
                 }
             });
 
