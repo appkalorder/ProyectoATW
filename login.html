@@ -112,14 +112,14 @@
                 <h1 class="text-dark font-weight-bold display-1 text-center">DocuLab</h1>
             </div>
             <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
-                <form class="mb-5">
+                <form id="loginForm" action="login.php" method="POST" class="mb-5">
                     <div class="mb-4">
-                        <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                        <input type="email" class="form-control border-0" placeholder="Ingresa tu correo" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="email" class="form-label font-weight-bold">Email</label>
+                        <input type="email" class="form-control border-0" placeholder="Ingresa tu correo" id="email" name="email" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-4">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control border-0 mb-2" placeholder="Ingresa tu contraseña">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control border-0 mb-2" placeholder="Ingresa tu contraseña" id="password" name="password" required>
                         <a href="" id="emailHelp" class="form-text text-dark text-decoration-none">¿Has olvidado tu contraseña?</a>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Iniciar Sesión</button>
@@ -142,6 +142,11 @@
 
 <script>
     $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error') && urlParams.get('error') === 'invalid_credentials') {
+            alert('Correo electrónico o contraseña incorrectos.');
+        }
+
         // Configurar el intervalo de cambio de imágenes a 2 segundos
         let interval = 5000;
         // Inicializar carrusel de Bootstrap sin la transición automática para controlarlo con jQuery
