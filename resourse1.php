@@ -8,8 +8,8 @@ if (!isset($_SESSION)) {
 
 // Tu código aquí...
 // Verifica que la clave exista en $_SESSION antes de acceder a ella
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (isset($_SESSION['firstName'])) {
+    $username = $_SESSION['firstName'];
 } else {
     $username = 'Anonymous';
 }
@@ -418,7 +418,7 @@ if (isset($_SESSION['username'])) {
                 $parts = explode('|', $comment, 3);
                 if (count($parts) === 3) {
                     list($timestamp, $username, $commentText) = $parts;
-                    $displayName = (isset($_SESSION['username']) && $username === $_SESSION['username']) ? 'Tú' : $username;
+                    $displayName = (isset($_SESSION['firstName']) && $username === $_SESSION['firstName']) ? 'Tú' : $username;
                     echo "<p><strong>$displayName</strong>: $commentText</p>";
                 } else {
                     echo "<p>Error en el formato del comentario: $comment</p>";

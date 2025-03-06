@@ -8,7 +8,7 @@ $commentsFile = 'comments.txt';
 // Handle new comment submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
     $comment = htmlspecialchars($_POST['comment']);
-    $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Anonymous';
+    $username = isset($_SESSION['firstName']) ? $_SESSION['firstName'] : 'Anonymous';
     $timestamp = date('Y-m-d H:i:s');
     $newComment = "$timestamp|$username|$comment\n";
 
